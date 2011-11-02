@@ -1,0 +1,243 @@
+@charset "utf-8";
+/**
+*
+*  CSS File for timesheet application
+*
+*/
+
+ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, body, html, p, blockquote, fieldset, input {
+	margin:0;
+	padding:0;
+}
+ul {
+	list-style:none;
+}
+fieldset {
+	border:0;
+}
+a, a:link, a:visited, a:hover {
+	color:#00f;
+	text-decoration:none;
+}
+a:focus, a:hover {
+	text-decoration:underline;
+}
+a img {
+	border:0;
+}
+@external .clear {
+	clear:both;
+}
+body {
+	position:relative;
+	background:#383d43 url(../images/body_bg.gif) repeat-x;
+	color:#000;
+	font:62.5% Myriad Pro, Arial, sans-serif;
+}
+#wrapper {
+	width: 943px;
+	padding: 0px 0px 0px 1px;
+	margin:0 auto;
+}
+#header {
+	width: 886px;
+	height: 49px;
+	font-size: 14px;
+	padding: 16px 35px 0px 22px;
+}
+#header p {
+	float: left;
+	color: #525961;
+}
+#header span {
+	color: #bababa;
+}
+#header ul {
+	float:right;
+}
+#header ul li {
+	float: left;
+	margin: 0px 12px 0px 0px;
+	padding: 0px 0px 0px 12px;
+	background: url(../images/header_navi_bg.gif) left bottom no-repeat;
+}
+@external #header ul li.no_bg {
+	background: none;
+}
+#header ul li a {
+	color:#fff;
+}
+#logo {
+	display: inline-block;
+	width: 255px;
+	height: 34px;
+	float: left;
+	clear: both;
+	margin: 0px 0px 0px 21px;
+	background: url(../images/logo.jpg) no-repeat;
+	text-indent: -9999px;
+}
+form {
+	float: right;
+}
+select {
+	width: 200px;
+	height: 22px;
+	float: left;
+	padding: 2px 5px;
+	color: #a0a4a8;
+	border: none;
+}
+#navigation {
+	width: 926px;
+	height: 52px;
+	float: left;
+	padding: 12px 0px 0px 15px;
+	background: url(../images/navigation_bg.jpg) repeat-x;
+	border-left: 1px solid #43474b;
+	border-right: 1px solid #43474b;
+}
+#navigation ul li {
+	display: block;
+	float: left;
+	height: 41px;
+}
+#navigation ul li a {
+	display: inline-block;
+	color: #cbd9e7;
+	height: 29px;
+	font-size: 14px;
+	padding: 12px 24px 0px 24px;
+	text-transform: uppercase;
+}
+#navigation ul li a:hover {
+	text-decoration: none;
+	background: url(../images/navigation_btn_bg.gif) repeat-x;
+}
+@external #navigation ul li.active a {
+	background: url(../images/navigation_btn_bg.gif) repeat-x;
+}
+#content {
+	width: 943px;
+	float: left;	
+}
+
+.dayTable {
+	width: 879px;
+	float: left;
+	padding: 5px 18px 0px 17px;
+	margin: 3px 15px 0px 15px;
+	/*background: url(../images/day_bg.gif) repeat-y;*/
+	background-color: white;
+}
+
+.innerDayTable {
+	width: 100%;
+}
+
+.weekContent {
+	width: 943px;
+	float: left;
+	padding: 2px 0px 2px 1px;
+}
+
+@external .text {
+	font-family: Helvetica, Arial;
+	width: 752px;
+	float: left;
+	padding: 32px 38px 22px 30px;
+	color: #fff;
+}
+.text h2 {
+	font-size: 24px;
+	float: left;
+	margin: 0px 0px 12px 0px;
+	color: #fff;
+}
+.text p {
+	color: #bcc4c7;
+	width: 752px;
+	float: left;
+	clear: left;
+	font-size: 12px;
+}
+.text p img {
+	float: right;
+	margin: 0px 0px 0px 20px;
+}
+@external .text a.continue {
+	position: relative;
+	color: #65b8f9;
+	float: left;
+	clear: left;
+	font-size: 15px;
+	margin: 30px 0px 0px 0px;
+}
+@external .alternative {
+	background: #2a2d32;
+	border-top: 1px solid #26292e;
+	border-bottom: 1px solid #26292e;
+}
+.subheading {
+	width: 900px;
+	height: 29px;
+	float: left;
+	background: url(../images/navigation_btn_bg.gif) repeat-x;
+	margin-top: 0px;
+	margin-right: 10px;
+	margin-bottom: 3px;
+	margin-left: 15px;
+	padding-top: 12px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 14px;
+}
+.subheading ul {
+	float:left;
+}
+.subheading ul li {
+	float: left;
+	margin: 0px 60px 0px 0px;
+	padding: 0px 0px 0px 12px;
+	color:#fff;
+}
+.subheading ul {
+	background: none;
+}
+.subheading a {
+	color:#fff;
+}
+
+.subheading h2 {
+	font-size: 17px;
+	color: #ffffff;
+	float: left;
+	font-weight: normal;
+	padding: 0px 10px 0px 0px;
+}
+
+ul {
+	float: left;
+	margin: 0px 0px 39px 0px;
+}
+ul li {
+	font-size: 14px;
+	color: #ffffff;
+	margin: 0px 0px 17px 11px;
+}
+ul li span {
+	color: #65b8f9;
+}
+
+.placeHolder{
+	border:1px dashed black;
+	margin-top: 5px;
+	width: 100px;
+}
+
+.sortablePanel{
+	padding-bottom: 100px;
+	width: 100px;
+	float: left;
+	margin-left: 1px;
+}

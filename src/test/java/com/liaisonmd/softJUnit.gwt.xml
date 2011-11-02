@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+  <!-- Inherit our applications main module.                      -->
+  <inherits name='com.liaisonmd.client.Soft'/>
+
+  <!-- Specify the path to any remote services.                   -->
+  <servlet path="/gwtRequest" class="com.google.web.bindery.requestfactory.server.RequestFactoryServlet" />
+
+</module>

@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com</groupId>
+	<artifactId>liaisonmd</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>prototype</name>
+	<properties>
+		<slf4j.version>1.5.6</slf4j.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- Convenience property to set the GWT version -->
+		<gwtVersion>2.3.0</gwtVersion>
+		<gwt-mvn-plugin.version>2.3.0</gwt-mvn-plugin.version>
+		<!-- GWT needs at least java 1.5 -->
+		<maven.compiler.source>1.6</maven.compiler.source>
+		<maven.compiler.target>1.6</maven.compiler.target>
+		<webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
+		<!-- Convenience property to set the GWTP version -->
+		<gwtp-version>0.6</gwtp-version>
+		<gwtp-groupId>com.gwtplatform</gwtp-groupId>
+		<gae.version>1.5.1</gae.version>
+	</properties>
+	<repositories>
+		<!-- GWTP Snapshot repos -->
+		<repository>
+			<id>gwtplatform.snapshot.repo</id>
+			<name>Gwtplatform snapshot repository</name>
+			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+			<layout>default</layout>
+		</repository>
+		<!-- GWTP repos -->
+		<repository>
+			<id>gwtp</id>
+			<name>gwt-platform</name>
+			<url>http://maven.gwt-platform.googlecode.com/hg/</url>
+		</repository>
+
+		<!-- REMOVE THIS WHEN AVAILABLE IN MAVEN CENTRAL REPO -->
+		<!-- GWT-QUERY-DND -->
+		<repository>
+			<id>plugins</id>
+			<url>http://gwtquery-plugins.googlecode.com/svn/mavenrepo</url>
+		</repository>
+		<repository>
+			<id>JBoss Repo</id>
+			<url>https://repository.jboss.org/nexus/content/repositories/releases</url>
+			<name>JBoss Repo</name>
+		</repository>
+		<repository>
+			<id>maven.springframework.org.external</id>
+			<url>http://maven.springframework.org/external</url>
+			<name>SpringSource Maven Repository - External Releases</name>
+		</repository>
+
+		<!-- Twig -->
+		<repository>
+			<id>twig</id>
+			<url>http://mvn.twig-persist.googlecode.com/hg</url>
+		</repository>
+
+		<!-- Objectify -->
+		<repository>
+			<id>objectify-appengine</id>
+			<url>http://objectify-appengine.googlecode.com/svn/maven</url>
+		</repository>
+	</repositories>
+
+	<dependencies>
+
+		<!-- MAVEN SUPPORTED DEPENDENCIES -->
+		<dependency>
+			<groupId>com.google.appengine</groupId>
+			<artifactId>appengine-api-1.0-sdk</artifactId>
+			<version>${gae.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.appengine</groupId>
+			<artifactId>appengine-testing</artifactId>
+			<version>${gae.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.google.appengine</groupId>
+			<artifactId>appengine-api-stubs</artifactId>
+			<version>${gae.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.google.appengine</groupId>
+			<artifactId>appengine-api-labs</artifactId>
+			<version>${gae.version}</version>
+		</dependency>
+		<!-- uncomment for testing <dependency> <groupId>com.google.appengine</groupId> 
+			<artifactId>appengine-local-runtime</artifactId> <version>${gae.version}</version> 
+			<scope>system</scope> <systemPath>${gae.home}/lib/impl/appengine-local-runtime.jar</systemPath> 
+			</dependency> <dependency> <groupId>com.google.appengine</groupId> <artifactId>appengine-tools-api</artifactId> 
+			<version>${gae.version}</version> <scope>system</scope> <systemPath>${gae.home}/lib/appengine-tools-api.jar</systemPath> 
+			</dependency> -->
+
+		<dependency>
+			<groupId>com.googlecode.gwtquery.bundles</groupId>
+			<artifactId>gquery-dnd-bundle</artifactId>
+			<version>1.0.4</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.google.inject</groupId>
+			<artifactId>guice</artifactId>
+			<version>3.0-rc2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.inject.extensions</groupId>
+			<artifactId>guice-assistedinject</artifactId>
+			<version>3.0-rc2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.inject.extensions</groupId>
+			<artifactId>guice-servlet</artifactId>
+			<version>3.0-rc2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.gwt.inject</groupId>
+			<artifactId>gin</artifactId>
+			<version>1.0-r170</version>
+		</dependency>
+		<dependency>
+			<groupId>${gwtp-groupId}</groupId>
+			<artifactId>gwtp-mvp-client</artifactId>
+			<version>${gwtp-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>${gwtp-groupId}</groupId>
+			<artifactId>gwtp-dispatch-client</artifactId>
+			<version>${gwtp-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>${gwtp-groupId}</groupId>
+			<artifactId>gwtp-dispatch-shared</artifactId>
+			<version>${gwtp-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>${gwtp-groupId}</groupId>
+			<artifactId>gwtp-dispatch-server-guice</artifactId>
+			<version>${gwtp-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-user</artifactId>
+			<version>${gwtVersion}</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- General dependencies for standard applications -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.2</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.14</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.persistence</groupId>
+			<artifactId>persistence-api</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.0.0.GA</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.0.0.GA</version>
+			<classifier>sources</classifier>
+		</dependency>
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-servlet</artifactId>
+			<version>${gwtVersion}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20090211</version>
+		</dependency>
+		<dependency>
+			<groupId>com.googlecode.objectify</groupId>
+			<artifactId>objectify</artifactId>
+			<version>3.0</version>
+		</dependency>
+		
+		<!-- TEMPORARY LOCAL DEPENDENCY FOR GWT-LOG -->
+		<dependency>
+		  <groupId>com.google.code.gwt-log</groupId>
+		  <artifactId>gwt-log</artifactId>
+		  <version>3.1.3</version>
+		</dependency>
+		
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>net.kindleit</groupId>
+				<artifactId>maven-gae-plugin</artifactId>
+				<version>0.8.0</version>
+				<executions>
+					<!--<execution>
+						<phase>validate</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+					</execution>-->
+				</executions>
+
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.1-beta-1</version>
+				<!-- <configuration> <webXml>target/web.xml</webXml> </configuration> -->
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.4.2</version>
+				<configuration>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.1</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.2-beta-5</version>
+				<configuration>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>2.5</version>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+			<!-- IDE -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.8</version>
+				<configuration>
+					<downloadSources>false</downloadSources>
+					<downloadJavadocs>true</downloadJavadocs>
+					<useProjectReferences>false</useProjectReferences>
+					<wtpversion>2.0</wtpversion>
+					<classpathContainers>
+						<classpathContainer>com.google.appengine.eclipse.core.GAE_CONTAINER</classpathContainer>
+						<classpathContainer>com.google.gwt.eclipse.core.GWT_CONTAINER</classpathContainer>
+					</classpathContainers>
+					<additionalBuildcommands>
+						<buildcommand>com.google.gwt.eclipse.core.gwtProjectValidator</buildcommand>
+					</additionalBuildcommands>
+					<additionalProjectnatures>
+						<projectnature>com.google.appengine.eclipse.core.gaeNature</projectnature>
+						<projectnature>com.google.gwt.eclipse.core.gwtNature</projectnature>
+					</additionalProjectnatures>
+					<additionalConfig>
+						<file>
+							<name>.settings/com.google.gwt.eclipse.core.prefs</name>
+							<content>eclipse.preferences.version=1
+                                    entryPointModules=com.liaisonmd.soft</content>
+							<name>.settings/com.google.gdt.eclipse.core.prefs</name>
+							<content>eclipse.preferences.version=1
+                                    jarsExcludedFromWebInfLib=
+                                    warSrcDir=src/main/webapp
+                                    warSrcDirIsOutput=false</content>
+						</file>
+					</additionalConfig>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>tomcat-maven-plugin</artifactId>
+				<version>1.0</version>
+			</plugin>
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>7.1.2.v20100523</version>
+				<configuration>
+					<webAppConfig>
+						<contextPath>/${project.name}</contextPath>
+					</webAppConfig>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>gwt-maven-plugin</artifactId>
+				<version>${gwtVersion}</version>
+				<configuration>
+					<appEngineVersion>${gae.version}</appEngineVersion>
+					<appEngineHome>${gae.home}</appEngineHome>
+					<logLevel>INFO</logLevel>
+					<style>${gwt.style}</style>
+					<server>com.google.appengine.tools.development.gwt.AppEngineLauncher</server>
+					<hostedWebapp>${project.build.directory}/${project.build.finalName}</hostedWebapp>
+					<copyWebapp>true</copyWebapp>
+					<runTarget>soft.html</runTarget>
+					<module>com.liaisonmd.soft</module>
+				</configuration>
+				<executions>
+					<execution>
+						<id>gwtcompile</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>compile</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+						<configuration>
+							<sourcepath>${project.build.sourceDirectory}</sourcepath>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-release-plugin</artifactId>
+				<configuration>
+					<goals>gae:deploy</goals>
+				</configuration>
+			</plugin>
+		</plugins>
+		<!-- <outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</outputDirectory> -->
+		<!-- Generate compiled stuff in the folder used for developing mode -->
+		<outputDirectory>${webappDirectory}/WEB-INF/classes</outputDirectory>
+	</build>
+	<profiles>
+
+		<!-- We can configure our integration server to activate this profile and 
+			perform gae:deploy, thus uploading latest snapshot to the http://1.latest.<applicationName>.appspot.com 
+			automatically -->
+		<profile>
+			<id>integration-build</id>
+			<properties>
+				<gae.application.version>stage</gae.application.version>
+				<!-- Produce pretty JS during GWT compilation for test environment -->
+				<gwt.style>DETAILED</gwt.style>
+			</properties>
+		</profile>
+
+		<!-- This profile will activate automatically during release and upload 
+			application to the http://2.latest.<applicationName>.appspot.com (We might 
+			want to set the 2nd version as our applications Default version to be accessible 
+			at http://<applicationName>.appspot.com) -->
+		<profile>
+			<id>release-build</id>
+			<activation>
+				<property>
+					<name>performRelease</name>
+					<value>true</value>
+				</property>
+			</activation>
+
+			<properties>
+				<!-- During release, set application version in appengine-web.xml to 
+					2 -->
+				<gae.application.version>release</gae.application.version>
+				<!-- Produce compressed JS during GWT compilation for production environment -->
+				<gwt.style>OBFUSCATED</gwt.style>
+			</properties>
+		</profile>
+	</profiles>
+</project>
