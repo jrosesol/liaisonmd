@@ -26,6 +26,6 @@ public class Soft implements EntryPoint {
         
         // FIXCOMMIT //
         // REMOVE THIS WHEN REAL APP IS DEPLOYED
-        ginjector.getDemoDataLoader().loadDemoData();
+        //ginjector.getDemoDataLoader().loadDemoData();
     }
 }

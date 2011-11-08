@@ -112,30 +112,6 @@ public class MainPagePresenter
         this.dataProxy = dataProxy;
     }
 
-
-    @Inject
-    CompanyPresenter companyPresenter;
-
-    @Inject
-    ReportsPresenter reports;
-
-    @Inject
-    ApprovalPresenter tasks;
-
-    @Inject
-    TimesheetPresenter timesheets;
-    
-    // @Inject
-    // public void injectPresenters(final CompanyPresenter companyPresenter,
-    // final ReportsPresenter reports, final TasksPresenter tasks,
-    // final TimesheetPresenter timesheets) {
-    //
-    // }
-
-    // /////////////////////////////////////////////////////////////////////////
-    // Handlers
-    // /////////////////////////////////////////////////////////////////////////
-
     // /////////////////////////////////////////////////////////////////////////
     // Overrides
     // /////////////////////////////////////////////////////////////////////////

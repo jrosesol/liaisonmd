@@ -16,11 +16,7 @@
 
 package com.liaisonmd.client.gin;
 
-import com.liaisonmd.client.mvp.presenter.CompanyPresenter;
 import com.liaisonmd.client.mvp.presenter.MainPagePresenter;
-import com.liaisonmd.client.mvp.presenter.ReportsPresenter;
-import com.liaisonmd.client.mvp.presenter.ApprovalPresenter;
-import com.liaisonmd.client.mvp.presenter.TimesheetPresenter;
 import com.liaisonmd.client.util.DemoDataLoader;
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.inject.client.AsyncProvider;
@@ -47,9 +43,4 @@ public interface MyGinjector extends Ginjector {
 	
 	DemoDataLoader getDemoDataLoader();
 	
-	// Asynch providers
-	AsyncProvider<TimesheetPresenter> getTimesheetPresenter();
-	AsyncProvider<ApprovalPresenter> getTasksPresenter();
-	AsyncProvider<ReportsPresenter> getReportsPresenter();
-	AsyncProvider<CompanyPresenter> getCompanyPresenter();
 }

@@ -20,29 +20,9 @@ import java.util.logging.Logger;
 
 import com.liaisonmd.client.controller.DataStoreProxy;
 import com.liaisonmd.client.i18n.AppsConstants;
-import com.liaisonmd.client.mvp.presenter.ActivityCalendarWidgetPresenter;
-import com.liaisonmd.client.mvp.presenter.CompanyPresenter;
 import com.liaisonmd.client.mvp.presenter.MainPagePresenter;
 import com.liaisonmd.client.mvp.presenter.MyRootPresenter;
-import com.liaisonmd.client.mvp.presenter.ProjectPopupDetailsPresenter;
-import com.liaisonmd.client.mvp.presenter.ActivityCalendarWidgetPresenter.ActivityCalendarWidgetViewInterface;
-import com.liaisonmd.client.mvp.presenter.ProjectPopupDetailsPresenter.ProjectPopupDetailsViewInterface;
-import com.liaisonmd.client.mvp.presenter.ReportsPresenter;
-import com.liaisonmd.client.mvp.presenter.ApprovalPresenter;
-import com.liaisonmd.client.mvp.presenter.TimeEntryWizardPopupPresenter;
-import com.liaisonmd.client.mvp.presenter.TimeEntryWizardPopupPresenter.TimeEntryWizardPopupViewInterface;
-import com.liaisonmd.client.mvp.presenter.TimesheetCellListPresenter;
-import com.liaisonmd.client.mvp.presenter.TimesheetPresenter;
-import com.liaisonmd.client.mvp.presenter.TimesheetCellListPresenter.TimesheetCellListViewInterface;
-import com.liaisonmd.client.mvp.view.ActivityCalendarWidgetView;
-import com.liaisonmd.client.mvp.view.CompanyView;
 import com.liaisonmd.client.mvp.view.MainPageView;
-import com.liaisonmd.client.mvp.view.ProjectPopupDetailsView;
-import com.liaisonmd.client.mvp.view.ReportsView;
-import com.liaisonmd.client.mvp.view.ApprovalView;
-import com.liaisonmd.client.mvp.view.TimeEntryWizardPopupView;
-import com.liaisonmd.client.mvp.view.TimesheetCellListView;
-import com.liaisonmd.client.mvp.view.TimesheetView;
 import com.liaisonmd.client.place.MyPlaceManager;
 import com.liaisonmd.client.util.DemoDataLoader;
 import com.liaisonmd.server.domain.TimeEntryCodes;
@@ -65,7 +45,6 @@ import com.gwtplatform.mvp.client.proxy.TokenFormatter;
 import com.liaisonmd.client.place.DefaultPlace;
 import com.liaisonmd.client.place.NameTokens;
 
-
 /**
  * @author Jose Rose
  */
@@ -87,28 +66,6 @@ public class MyModule extends AbstractPresenterModule {
         // Presenters
         bindPresenter(MainPagePresenter.class, MainPagePresenter.MainPageViewInterface.class, MainPageView.class,
                       MainPagePresenter.MainPageProxy.class);
-        bindPresenter(TimesheetPresenter.class, TimesheetPresenter.TimesheetViewInterface.class, TimesheetView.class,
-                      TimesheetPresenter.TimesheetProxy.class);
-        bindPresenter(ReportsPresenter.class, ReportsPresenter.ReportsViewInterface.class, ReportsView.class,
-                      ReportsPresenter.ReportsProxy.class);
-        bindPresenter(ApprovalPresenter.class, ApprovalPresenter.TasksViewInterface.class, ApprovalView.class,
-                      ApprovalPresenter.TasksProxy.class);
-        bindPresenter(CompanyPresenter.class, CompanyPresenter.CompanyViewInterface.class, CompanyView.class,
-                      CompanyPresenter.CompanyProxy.class);
-
-        // Singleton presenter widgets
-        bindSingletonPresenterWidget(TimesheetCellListPresenter.class, TimesheetCellListViewInterface.class,
-                                     TimesheetCellListView.class);
-
-        bindSingletonPresenterWidget(ProjectPopupDetailsPresenter.class,
-                                     ProjectPopupDetailsViewInterface.class, ProjectPopupDetailsView.class);
-
-        bindSingletonPresenterWidget(TimeEntryWizardPopupPresenter.class,
-                                     TimeEntryWizardPopupViewInterface.class, TimeEntryWizardPopupView.class);
-        
-        // Presenter widgets
-        bindPresenterWidget(ActivityCalendarWidgetPresenter.class,
-                            ActivityCalendarWidgetViewInterface.class, ActivityCalendarWidgetView.class);
 
     }
 
