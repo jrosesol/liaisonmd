@@ -28,6 +28,12 @@ NEVER COMMIT "soft.html.launch"
 TROUBLESHOOTING
 ##############################################
 
+# ECLIPSE SETUP
+##########################
+
+
+
+
 # SETUP LAUNCH CONFIG FILE
 ##########################
 

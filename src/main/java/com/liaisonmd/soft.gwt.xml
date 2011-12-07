@@ -2,10 +2,7 @@
 <module rename-to='Soft'>
 	<!-- Inherit the core Web Toolkit stuff. -->
 	<inherits name='com.google.gwt.user.User' />
-    <inherits name="com.google.gwt.i18n.I18N"/>
-    
-    
-    
+    <inherits name="com.google.gwt.i18n.I18N"/>    
 
 	<!-- Logging module -->
 	<!-- <inherits name="com.google.gwt.logging.Logging" /> -->
@@ -27,6 +24,10 @@
 	<!-- GWT RequestFactory -->
 	<inherits name="com.googlecode.objectify.Objectify" />
 	<inherits name='com.google.web.bindery.requestfactory.RequestFactory' />
+	
+	<!-- GWT Editor : Allows data stored in an object graph to be mapped
+	 onto a graph of Editors  -->
+	<inherits name="com.google.gwt.editor.Editor" />
 
 	<!-- GWT-query-pluggins -->
 	<!-- <inherits name='gwtquery.plugins.droppable.Droppable' /> -->
@@ -34,7 +35,6 @@
     <extend-property name="locale" values="en"/>
 <!--     <extend-property name="locale" values="fr"/>     -->
 <!--     <extend-property name="locale" values="es"/>     -->
-    
 
 	<!-- EXT-GWT -->
 	<!-- <inherits name="com.extjs.gxt.ui.GXT"/> -->
@@ -50,13 +50,13 @@
 	<define-configuration-property name="gin.ginjector"
 		is-multi-valued="false" />
 	<set-configuration-property name="gin.ginjector"
-		value="com.liaisonmd.client.gin.MyGinjector" />
+		value="com.liaisonmd.client.gin.ClientGinjector" />
 
 	<!-- <stylesheet src="js/ext/resources/css/ext-all.css"/> <script src="js/ext/adapter/ext/ext-base.js"/> 
 		<script src="js/ext/ext-all.js"/> -->
 
 	<!-- In gwt-log-3.0.3 or later -->
-    <inherits name="com.allen_sauer.gwt.log.gwt-log-RemoteLogger" />
+    <!-- <inherits name="com.allen_sauer.gwt.log.gwt-log-RemoteLogger" /> -->
     
 	<!-- Loggers Enabled by default -->
 	<set-property name="log_ConsoleLogger" value="DISABLED" />
@@ -64,14 +64,11 @@
 	<set-property name="log_FirebugLogger" value="DISABLED" />
 	<set-property name="log_GWTLogger" value="DISABLED" />
 	<set-property name="log_SystemLogger" value="ENABLED" />
-	
-	<!-- Loggers Disabled by default -->
 	<set-property name="log_WindowLogger" value="DISABLED" />
 	
 	<!-- Inspired by Apache log4j PatternLayout:
     	http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/PatternLayout.html -->
-	<set-configuration-property name="log_pattern" value="(%F:%L) %d [%-5p] %m%n" />
-	<inherits name="com.liaisonmd.soft"/>
+	<set-configuration-property name="log_pattern" value="[%-5p] %d{HH\:mm\:ss,SSS} (%F:%L) %m%n" />
 	<inherits name="com.liaisonmd.soft"/>
 
 </module>

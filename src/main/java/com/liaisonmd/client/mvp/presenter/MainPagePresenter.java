@@ -18,6 +18,7 @@ package com.liaisonmd.client.mvp.presenter;
 
 import com.liaisonmd.client.controller.DataStoreProxy;
 import com.liaisonmd.client.mvp.view.MainPageUiHandlers;
+import com.liaisonmd.client.place.NameTokens;
 import com.liaisonmd.client.util.Resources;
 import com.liaisonmd.shared.proxy.AccountProxy;
 import com.liaisonmd.shared.proxy.ActivityProxy;
@@ -56,7 +57,6 @@ public class MainPagePresenter
     // /////////////////////////////////////////////////////////////////////////
     // Members
     // /////////////////////////////////////////////////////////////////////////
-    public static final String nameToken = "main";
 
     private final PlaceManager placeManager;
 
@@ -82,7 +82,7 @@ public class MainPagePresenter
      * {@link MainPagePresenter}'s proxy.
      */
     @ProxyStandard
-    @NameToken(nameToken)
+    @NameToken(NameTokens.main)
     public interface MainPageProxy extends Proxy<MainPagePresenter>, Place {
     }
 
@@ -92,9 +92,7 @@ public class MainPagePresenter
      */
     public interface MainPageViewInterface extends View,
             HasUiHandlers<MainPageUiHandlers> {
-
-    }
-    
+    }    
     
     // /////////////////////////////////////////////////////////////////////////
     // Constructors

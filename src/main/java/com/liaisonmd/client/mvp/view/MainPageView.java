@@ -71,12 +71,7 @@ public class MainPageView extends ViewWithUiHandlers<MainPageUiHandlers>
     @Inject
     public MainPageView() {
         widget = uiBinder.createAndBindUi(this);
-        
-        
-        
-//        mainContent = new HTMLPanel(Resources.INSTANCE.synchronous().getText());
-//        simpleContentHolder.add(mainContent);
-        
+                
         AppsConstants lConstants = (AppsConstants) GWT.create(AppsConstants.class);
         
         lblTimesheet.setText(lConstants.timesheet());
@@ -102,13 +97,10 @@ public class MainPageView extends ViewWithUiHandlers<MainPageUiHandlers>
 
     private void setMainContent(Widget content) {
         mainContent.clear();
-                
 
         if (content != null) {
             mainContent.add(content, "content");
         }
-        
-
     }
 
     @Override

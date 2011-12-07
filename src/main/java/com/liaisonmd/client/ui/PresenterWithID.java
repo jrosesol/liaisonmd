@@ -4,7 +4,7 @@
  * @author Jose Rose
  * 2011-09-23
  */
-package com.liaisonmd.client.mvp;
+package com.liaisonmd.client.ui;
 
 import com.liaisonmd.client.util.UtilFunc;
 import com.google.gwt.event.shared.EventBus;

@@ -158,7 +158,8 @@
 			<version>4.8.2</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
+<!--		
+        <dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.14</version>
@@ -178,6 +179,7 @@
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>${slf4j.version}</version>
 		</dependency>
+-->
 		<dependency>
 			<groupId>javax.persistence</groupId>
 			<artifactId>persistence-api</artifactId>
@@ -350,6 +352,57 @@
 					</execution>
 				</executions>
 			</plugin>
+            <!-- requestfactory-apt runs an annotation processor (APT) to
+                       instrument its service interfaces so that
+                       RequestFactoryServer can decode client requests. Normally
+                       you would just have a dependency on requestfactory-apt
+                       with <scope>provided</scope>, but that won't work in
+                       eclipse due to m2e bug
+                       https://bugs.eclipse.org/bugs/show_bug.cgi?id=335036 -->
+            <plugin>
+                <groupId>org.bsc.maven</groupId>
+                <artifactId>maven-processor-plugin</artifactId>
+                <version>2.0.5</version>
+                <executions>
+                    <execution>
+                        <id>process</id>
+                        <goals>
+                            <goal>process</goal>
+                        </goals>
+                        <phase>generate-sources</phase>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.google.web.bindery</groupId>
+                        <artifactId>requestfactory-apt</artifactId>
+                        <version>${gwtVersion}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+    
+            <!-- Google Plugin for Eclipse (GPE) won't see the source
+               generated above by requestfactory-apt unless it is exposed
+               as an additional source dir-->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>1.7</version>
+                <executions>
+                    <execution>
+                        <id>add-source</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>${project.build.directory}/generated-sources/apt</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>

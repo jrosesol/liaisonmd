@@ -9,10 +9,20 @@ package com.liaisonmd.client.place;
  */
 public class NameTokens {
 
-	public static final String welcome = "!welcome";
+	public static final String main = "!main";
+	public static final String error = "!error";
+	public static final String settings = "!settings";
 
-	public static String getWelcome() {
-		return welcome;
+	public static String getMain() {
+		return main;
+	}
+
+	public static String getError() {
+		return error;
+	}
+
+	public static String getSettings() {
+		return settings;
 	}
 
 }

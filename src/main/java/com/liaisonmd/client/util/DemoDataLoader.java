@@ -45,7 +45,7 @@ public class DemoDataLoader {
     private final TimesheetRequestFactory rf;
     
     /* Has to be the same as in LoginSerce.java */
-    public static String DOMAIN_NAME = "domain50.com";
+    public static String DOMAIN_NAME = "domain1.com";
 
     @Inject
     public DemoDataLoader(final TimesheetRequestFactory rf) {
