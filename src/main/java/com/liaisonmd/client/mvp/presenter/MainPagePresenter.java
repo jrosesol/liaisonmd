@@ -33,7 +33,6 @@ import com.google.inject.Inject;
 import com.google.web.bindery.requestfactory.shared.Receiver;
 import com.google.web.bindery.requestfactory.shared.ServerFailure;
 
-import com.gwtplatform.dispatch.shared.DispatchAsync;
 import com.gwtplatform.mvp.client.HasUiHandlers;
 import com.gwtplatform.mvp.client.Presenter;
 import com.gwtplatform.mvp.client.View;
@@ -59,8 +58,6 @@ public class MainPagePresenter
     // /////////////////////////////////////////////////////////////////////////
 
     private final PlaceManager placeManager;
-
-    private final DispatchAsync dispatcher;
 
     private final DataStoreProxy dataProxy;
 
@@ -100,13 +97,12 @@ public class MainPagePresenter
     @Inject
     public MainPagePresenter(final EventBus eventBus,
             final MainPageViewInterface view, final MainPageProxy proxy,
-            final PlaceManager placeManager, final DispatchAsync dispatcher,
+            final PlaceManager placeManager,
             final DataStoreProxy dataProxy) {
         super(eventBus, view, proxy);
         getView().setUiHandlers(this);
 
         this.placeManager = placeManager;
-        this.dispatcher = dispatcher;
         this.dataProxy = dataProxy;
     }
 

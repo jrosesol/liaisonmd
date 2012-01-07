@@ -131,21 +131,6 @@
 			<version>${gwtp-version}</version>
 		</dependency>
 		<dependency>
-			<groupId>${gwtp-groupId}</groupId>
-			<artifactId>gwtp-dispatch-client</artifactId>
-			<version>${gwtp-version}</version>
-		</dependency>
-		<dependency>
-			<groupId>${gwtp-groupId}</groupId>
-			<artifactId>gwtp-dispatch-shared</artifactId>
-			<version>${gwtp-version}</version>
-		</dependency>
-		<dependency>
-			<groupId>${gwtp-groupId}</groupId>
-			<artifactId>gwtp-dispatch-server-guice</artifactId>
-			<version>${gwtp-version}</version>
-		</dependency>
-		<dependency>
 			<groupId>com.google.gwt</groupId>
 			<artifactId>gwt-user</artifactId>
 			<version>${gwtVersion}</version>

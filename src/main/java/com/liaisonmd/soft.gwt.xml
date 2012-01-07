@@ -19,7 +19,7 @@
 	<!-- Other module inherits -->
 	<!-- GWT Platform -->
 	<inherits name='com.gwtplatform.mvp.Mvp' />
-	<inherits name='com.gwtplatform.dispatch.Dispatch' />
+	<!--<inherits name='com.gwtplatform.dispatch.Dispatch' />-->
 
 	<!-- GWT RequestFactory -->
 	<inherits name="com.googlecode.objectify.Objectify" />
@@ -45,6 +45,32 @@
 	<!-- Specify the paths for translatable code -->
 	<source path='client' />
 	<source path='shared' />
+	
+	<!--
+	<define-property name="formfactor" values="tablet, mobile, desktop" />
+    <property-provider name="formfactor">
+        <![CDATA[
+          {
+            return 'mobile';
+          }
+        ]]>
+    </property-provider>
+    -->
+	
+	<!-- Device dependent settings -->
+	<!--
+    <replace-with class="com.liaisonmd.client.gin.DesktopGinjector">
+        <when-type-is class="com.liaisonmd.client.gin.ClientGinjector"/>
+    </replace-with>
+    <replace-with class="com.liaisonmd.client.gin.TabletGinjector">
+        <when-type-is class="com.liaisonmd.client.gin.ClientGinjector"/>
+        <when-property-is name="formfactor" value="tablet"/>
+    </replace-with>
+    <replace-with class="com.liaisonmd.client.gin.MobileGinjector">
+        <when-type-is class="com.liaisonmd.client.gin.ClientGinjector"/>
+        <when-property-is name="formfactor" value="mobile"/>
+    </replace-with>    
+    -->
 
 	<!-- This is required for Gwt-Platform Proxy's generator -->
 	<define-configuration-property name="gin.ginjector"
