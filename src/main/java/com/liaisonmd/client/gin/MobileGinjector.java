@@ -11,6 +11,6 @@ import com.google.gwt.inject.client.Ginjector;
  *
  */
 @GinModules({ClientModule.class, MobileGinModule.class})
-public interface MobileGinjector extends Ginjector {
+public interface MobileGinjector extends ClientGinjector {
 
 }

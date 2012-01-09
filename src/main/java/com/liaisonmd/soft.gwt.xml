@@ -58,7 +58,7 @@
     <property-provider name="formfactor">
         <![CDATA[
           {
-            return 'mobile';
+            return 'desktop';
           }
         ]]>
     </property-provider>
