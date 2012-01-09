@@ -45,8 +45,15 @@
 	<!-- Specify the paths for translatable code -->
 	<source path='client' />
 	<source path='shared' />
+    
+    	<!-- This is required for Gwt-Platform Proxy's generator -->
+	<define-configuration-property name="gin.ginjector"
+		is-multi-valued="false" />
+	<set-configuration-property name="gin.ginjector"
+		value="com.liaisonmd.client.gin.ClientGinjector" />
 	
-	<!--
+
+    
 	<define-property name="formfactor" values="tablet, mobile, desktop" />
     <property-provider name="formfactor">
         <![CDATA[
@@ -55,28 +62,24 @@
           }
         ]]>
     </property-provider>
-    -->
 	
 	<!-- Device dependent settings -->
-	<!--
-    <replace-with class="com.liaisonmd.client.gin.DesktopGinjector">
-        <when-type-is class="com.liaisonmd.client.gin.ClientGinjector"/>
+    <replace-with class="com.liaisonmd.client.gin.DesktopGinjectorProvider">
+        <when-type-is class="com.liaisonmd.client.gin.GinjectorProvider"/>
     </replace-with>
+    <replace-with class="com.liaisonmd.client.gin.MobileGinjectorProvider">
+        <when-type-is class="com.liaisonmd.client.gin.GinjectorProvider"/>
+        <when-property-is name="formfactor" value="mobile"/>
+    </replace-with>
+    
+<!--
     <replace-with class="com.liaisonmd.client.gin.TabletGinjector">
         <when-type-is class="com.liaisonmd.client.gin.ClientGinjector"/>
         <when-property-is name="formfactor" value="tablet"/>
     </replace-with>
-    <replace-with class="com.liaisonmd.client.gin.MobileGinjector">
-        <when-type-is class="com.liaisonmd.client.gin.ClientGinjector"/>
-        <when-property-is name="formfactor" value="mobile"/>
-    </replace-with>    
-    -->
+-->    
 
-	<!-- This is required for Gwt-Platform Proxy's generator -->
-	<define-configuration-property name="gin.ginjector"
-		is-multi-valued="false" />
-	<set-configuration-property name="gin.ginjector"
-		value="com.liaisonmd.client.gin.ClientGinjector" />
+
 
 	<!-- <stylesheet src="js/ext/resources/css/ext-all.css"/> <script src="js/ext/adapter/ext/ext-base.js"/> 
 		<script src="js/ext/ext-all.js"/> -->

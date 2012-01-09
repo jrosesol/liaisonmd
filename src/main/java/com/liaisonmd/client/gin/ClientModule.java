@@ -57,10 +57,6 @@ public class ClientModule extends AbstractPresenterModule {
 		bind(DemoDataLoader.class).asEagerSingleton();
 
 		// Presenters
-		bindPresenter(MainPagePresenter.class,
-				MainPagePresenter.MainPageViewInterface.class,
-				MainPageView.class, MainPagePresenter.MainPageProxy.class);
-
 
 		bindPresenter(ErrorPresenter.class, ErrorPresenter.MyView.class,
 				ErrorView.class, ErrorPresenter.MyProxy.class);

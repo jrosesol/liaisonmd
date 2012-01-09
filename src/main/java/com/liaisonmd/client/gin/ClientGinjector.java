@@ -22,7 +22,7 @@ import com.google.gwt.inject.client.AsyncProvider;
  * GWT Dependency Injection
  * 
  */
-@GinModules({ ClientModule.class })
+
 public interface ClientGinjector extends Ginjector {
 	EventBus getEventBus();
 
